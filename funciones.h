@@ -1,8 +1,10 @@
 #ifndef FUNCIONES_H
 #define FUNCIONES_H
 
-// Declaraciones de carga_imagen.c (Victor)
-unsigned char* cargar_imagen(const char* ruta, int* ancho, int* alto);
+// Devuelve array de pixeles en formato RGB (3 canales) o escala de grises (1 canal).
+// El arreglo se tiene que liberar de memoria con liberar_imagen() despues de usar cargarImagen
+unsigned char* cargarImagen(const char* ruta, int* ancho, int* alto);
+void liberarImagen(unsigned char* imagen);  
 
 // Declaraciones de procesamiento.c (Kevin)
 void convertir_a_grises(unsigned char* imagen, int ancho, int alto);
