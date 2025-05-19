@@ -3,14 +3,14 @@
 #include "funciones.h"
 
 // Negro (0) — Gris oscuro (50) — Gris medio (128) — Gris claro (200) — Blanco (255)
-void convertir_a_ascii(unsigned char* imagen, int ancho, int alto) {
+char** convertir_a_ascii(unsigned char* imagen, int ancho, int alto) {
     const char* escala_ascii = "@#$*+=0:. "; // Escala de caracteres ASCII ordenados por brillo
     int niveles = 10; // Número de niveles de brillo en la escala
     
     // Reservar memoria para la matriz de arte ASCII
-    char** arte_ascii = (char**)malloc(alto * sizeof(char*));
+    char** arte_ascii = (char** )malloc(alto * sizeof(char*));
     if (arte_ascii == NULL) {
-        fprintf(stderr, "Error al asignar memoria para arte ASCII.\n");
+        printf("Error al asignar memoria para arte ASCII.\n");
         exit(1);
     }
 
@@ -20,7 +20,7 @@ void convertir_a_ascii(unsigned char* imagen, int ancho, int alto) {
             fprintf(stderr, "Error al asignar memoria para una línea de arte ASCII.\n");
             exit(1);
         }
-    }
+    }//matriz de tamaño(alto)(ancho+1)
 
     // Convertir cada píxel a un carácter ASCII
     for (int y = 0; y < alto; y++) {
@@ -32,11 +32,5 @@ void convertir_a_ascii(unsigned char* imagen, int ancho, int alto) {
         arte_ascii[y][ancho] = '\0'; // Terminar la línea con un carácter nulo
     }
 
-    // Imprimir el arte ASCII y liberar la memoria
-    for (int i = 0; i < alto; i++) {
-        printf("%s\n", arte_ascii[i]); // Imprimir la línea de arte ASCII
-        free(arte_ascii[i]);           // Liberar memoria de cada línea
-    }
-
-    free(arte_ascii); // Liberar la memoria de la matriz
+    return arte_ascii; // Liberar la memoria de la matriz
 }

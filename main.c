@@ -41,7 +41,11 @@ int main(void) {
                     for (int i = 0; i < alto; i++) free(arte_ascii[i]);
                     free(arte_ascii);
                 }
-                arte_ascii = convertir_a_ascii(imagen, ancho, alto); // <-- Usa tu función
+                arte_ascii = convertir_a_ascii(imagen, ancho, alto); 
+                // Imprimir el arte ASCII y liberar la memoria
+                for (int i = 0; i < alto; i++) {
+                printf("%s\n", arte_ascii[i]); // Imprimir la línea de arte ASCII
+                }
                 break;
             case 3:
                 if (arte_ascii != NULL) {

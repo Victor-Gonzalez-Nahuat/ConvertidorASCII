@@ -10,7 +10,7 @@ void liberarImagen(unsigned char* imagen);
 void convertir_a_grises(unsigned char* imagen, int ancho, int alto);
 
 // Declaraciones de ascii.c (Natalia)
-unsigned char** convertir_a_ascii(unsigned char* imagen, int ancho, int alto);
+char** convertir_a_ascii(unsigned char* imagen, int ancho, int alto);
 
 // Declaraciones de guardado.c (Roberto)
 void guardar_ascii(char** arte_ascii, int ancho, int alto, const char* ruta_salida);
