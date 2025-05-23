@@ -32,4 +32,5 @@ char* convertir_a_ascii(Imagen* imagen_gris){
   }
   asciiArt[k] = '\0';
   return asciiArt;
+  
 }
