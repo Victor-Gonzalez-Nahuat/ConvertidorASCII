@@ -4,7 +4,7 @@
 // También define funciones como convertir_a_grises(), convertir_a_ascii()...
 
 unsigned char* imagen = NULL;
-char** arte_ascii = NULL;
+char* arte_ascii = NULL;
 int ancho = 0;
 int alto = 0;
 
@@ -37,14 +37,14 @@ int main(void) {
                 convertir_a_grises(imagen, ancho, alto); // <-- Usa tu función
                 break;
             case 2:
-                if (arte_ascii != NULL) {
-                    for (int i = 0; i < alto; i++) free(arte_ascii[i]);
+                if (arte_ascii != NULL){
                     free(arte_ascii);
                 }
-                arte_ascii = convertir_a_ascii(imagen, ancho, alto); 
-                // Imprimir el arte ASCII y liberar la memoria
-                for (int i = 0; i < alto; i++) {
-                printf("%s\n", arte_ascii[i]); // Imprimir la línea de arte ASCII
+                arte_ascii = convertir_a_ascii(imagen_gris);
+                if (arte_ascii != NULL) { 
+                    printf("%s", arte_ascii); // Imprime el arte ASCII
+                }else{
+                    puts("Primero debes convertir la imagen a escala de grises");
                 }
                 break;
             case 3:
