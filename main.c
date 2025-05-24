@@ -11,8 +11,9 @@ int main() {
         //Se convierte la escala de grises a caracteres ASCII segun su brillo:
         char* arte = convertir_a_ascii(imagenGris);
         printf("%s", arte);
-        free(arte);
         guardar_ascii(arte, "salida.txt");
+        free(arte);
+
     }
     return 0;
 }
